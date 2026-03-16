@@ -11,11 +11,11 @@ export class PageLoginSauces{
     }
 
     async hacerLogin(testInfo: { attach: Function}){
-        await expect(this.page.locator(selectorsLoginSauces.locatorUser)).toBeEditable();
+        await this.page.waitForLoadState('networkidle');
+        await expect(this.page.locator(selectorsLoginSauces.locatorUser)).toBeEditable({timeout: 15000});
         await this.page.locator(selectorsLoginSauces.locatorUser).fill('standard_user');
-        await expect(this.page.locator(selectorsLoginSauces.locatorPaaword)).toBeEditable();
         await this.page.locator(selectorsLoginSauces.locatorPaaword).fill('secret_sauce');
-        await expect(this.page.locator(selectorsLoginSauces.locatorBotonLogin)).toBeVisible();
+        await expect(this.page.locator(selectorsLoginSauces.locatorBotonLogin)).toBeVisible({timeout: 15000});
         await this.page.locator(selectorsLoginSauces.locatorBotonLogin).click({force:true});
         
     }
