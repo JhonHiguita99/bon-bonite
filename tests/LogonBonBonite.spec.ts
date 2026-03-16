@@ -22,7 +22,9 @@ test.beforeEach(async ({ page }) => {
 
 test('@CarritoDeCompras', async ({ page }, testInfo) => {
 
-    await page.goto('https://www.bon-bonite.com/mi-cuenta/');
+    await page.goto('https://bon-bonite.com.co');
+    
+    await page.locator(`#toggle-account-menu > .hover\\:opacity-70`).click()
     await page.waitForLoadState('domcontentloaded');
 
     const cookies = page.locator('#cookiescript_accept');
