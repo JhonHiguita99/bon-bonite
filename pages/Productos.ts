@@ -22,11 +22,11 @@ export class PageProducto {
         await expect(this.page.locator(selectorsProductos.locatorH1NombreProductos)).toBeVisible();
 
         await this.page.locator(selectorsProductos.locatorTalla).waitFor({state:'visible'});
-        await this.page.locator(selectorsProductos.locatorAceptar).click();
+        //await this.page.locator(selectorsProductos.locatorAceptar).click();
 
-        await this.page.getByRole('button', { name: '35' }).click();
+        await this.page.getByRole('button', { name: '35' }).click({force:true});
 
-        await this.page.locator(selectorsProductos.locatorCarrito).click();
+        await this.page.getByRole('button', { name: 'Añadir al carrito' }).click();
 
 
         

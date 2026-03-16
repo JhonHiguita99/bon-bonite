@@ -25,6 +25,12 @@ test('@CarritoDeCompras', async ({ page }, testInfo) => {
     await page.goto('https://www.bon-bonite.com/mi-cuenta/');
     await page.waitForLoadState('domcontentloaded');
 
+    const cookies = page.locator('#cookiescript_accept');
+
+if (await cookies.isVisible()) {
+  await cookies.click();
+}
+
     await test.step('hacer login', async () => {
 
         await loginBon.hacerLogin(testInfo , '1152696923','Agosto2022*')  
