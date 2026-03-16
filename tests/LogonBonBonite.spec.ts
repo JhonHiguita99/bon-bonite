@@ -23,6 +23,7 @@ test.beforeEach(async ({ page }) => {
 test('@CarritoDeCompras', async ({ page }, testInfo) => {
 
     await page.goto('https://www.bon-bonite.com/mi-cuenta/');
+    await page.waitForLoadState('domcontentloaded');
 
     await test.step('hacer login', async () => {
 
